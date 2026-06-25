@@ -2,22 +2,22 @@ const services = [
   {
     icon: <CarIcon />,
     title: "Private Car Hire",
-    desc: "Executive transportation for business meetings, events, and personal travel. Your dedicated chauffeur awaits.",
+    desc: "Executive transportation for business meetings, events, and personal travel with professional drivers.",
   },
   {
     icon: <PlaneIcon />,
     title: "Airport Pick-Up",
-    desc: "Seamless arrivals and departures at Margaret Ekpo International Airport. Flight tracking included.",
+    desc: "Reliable transfers to and from Margaret Ekpo International Airport with flight monitoring.",
   },
   {
     icon: <HotelIcon />,
     title: "Hotel Reservations",
-    desc: "Partner rates at Calabar's finest hotels. From Transcorp Hilton to boutique accommodations.",
+    desc: "Assistance with hotel bookings at premium properties including Transcorp Hilton Calabar.",
   },
   {
     icon: <SecurityIcon />,
     title: "Security Convoys",
-    desc: "Protected transportation for high-profile clients. Discreet, professional, and fully coordinated.",
+    desc: "Professional security convoy services for VIPs and high-profile clients.",
   },
 ];
 

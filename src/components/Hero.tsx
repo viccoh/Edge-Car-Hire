@@ -23,14 +23,14 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, #fbbf24 1px, transparent 0)", backgroundSize: "64px 64px" }} />
       </div>
 
-      {/* Background image overlay */}
+      {/* Background image overlay - Real SUV */}
       <div 
         className="absolute inset-0 -z-10 transition-transform duration-100"
         style={{ transform: `perspective(1000px) rotateX(${tilt.y * 0.5}deg) rotateY(${tilt.x * 0.5}deg)` }}
       >
         <img
           src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1600"
-          alt="Luxury SUV at night"
+          alt="Toyota Prado SUV"
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/80 to-transparent" />
@@ -76,9 +76,9 @@ export default function Hero() {
 
         {/* Stats */}
         <div className="mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
-          <Stat value="50+" label="Premium Vehicles" />
+          <Stat value="4.9★" label="Google Rated" />
           <Stat value="24/7" label="Availability" />
-          <Stat value="100%" label="Satisfaction" />
+          <Stat value="11" label="Google Reviews" />
         </div>
       </div>
 

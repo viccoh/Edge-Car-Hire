@@ -34,7 +34,7 @@ export default function Contact() {
                 <ContactItem
                   icon={<LocationIcon />}
                   label="Location"
-                  value="Transcorp Hilton, Big Qua Town, Calabar 540281"
+                  value="Transcorp Hilton, Big Qua Town, Calabar 540281, Cross River State"
                   href="https://maps.google.com/?q=Transcorp+Hilton+Calabar"
                 />
               </div>

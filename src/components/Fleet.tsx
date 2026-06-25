@@ -2,35 +2,11 @@ import { useState } from "react";
 
 const vehicles = [
   {
-    category: "sedan",
-    name: "Toyota Camry",
-    rate: "₦45,000",
-    period: "per day",
-    features: ["5 Seats", "Automatic", "Leather Interior", "GPS"],
-    image: "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
-  },
-  {
-    category: "sedan",
-    name: "Mercedes-Benz C-Class",
-    rate: "₦85,000",
-    period: "per day",
-    features: ["5 Seats", "Automatic", "Premium Sound", "Sunroof"],
-    image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
-  },
-  {
-    category: "sedan",
-    name: "Honda Accord",
-    rate: "₦50,000",
-    period: "per day",
-    features: ["5 Seats", "Automatic", "Backup Camera", "Bluetooth"],
-    image: "https://images.pexels.com/photos/128636/pexels-photo-128636.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
-  },
-  {
     category: "suv",
-    name: "Lexus RX 350",
+    name: "Toyota Prado",
     rate: "₦90,000",
     period: "per day",
-    features: ["5 Seats", "AWD", "Luxury Package", "360 Camera"],
+    features: ["7 Seats", "4WD", "Luxury Interior", "GPS"],
     image: "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
   },
   {
@@ -43,36 +19,26 @@ const vehicles = [
   },
   {
     category: "suv",
-    name: "Mercedes-Benz GLE",
-    rate: "₦100,000",
-    period: "per day",
-    features: ["5 Seats", "AWD", "Premium Leather", "Panoramic Roof"],
-    image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
-  },
-  {
-    category: "suv",
-    name: "Range Rover Sport",
-    rate: "₦100,000",
-    period: "per day",
-    features: ["5 Seats", "4WD", "Luxury Interior", "Advanced Safety"],
-    image: "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
-  },
-  {
-    category: "suv",
     name: "Toyota Land Cruiser",
     rate: "₦95,000",
     period: "per day",
     features: ["7 Seats", "4WD", "Off-Road Capable", "Premium Sound"],
     image: "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
   },
+  {
+    category: "suv",
+    name: "Lexus GX 460",
+    rate: "₦100,000",
+    period: "per day",
+    features: ["7 Seats", "4WD", "Luxury Package", "Advanced Safety"],
+    image: "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800",
+  },
 ];
 
 export default function Fleet() {
-  const [filter, setFilter] = useState<"all" | "sedan" | "suv">("all");
   const [showAll, setShowAll] = useState(false);
 
-  const filtered = filter === "all" ? vehicles : vehicles.filter((v) => v.category === filter);
-  const displayed = showAll ? filtered : filtered.slice(0, 4);
+  const displayed = showAll ? vehicles : vehicles.slice(0, 4);
 
   return (
     <section id="fleet" className="py-24 px-5 relative">
@@ -84,31 +50,14 @@ export default function Fleet() {
             Our Fleet
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4">
-            Choose Your Ride
+            Premium SUVs
           </h2>
           <p className="text-white/60 text-lg mb-4">
-            Premium vehicles meticulously maintained for your comfort and safety.
+            Our fleet consists exclusively of well-maintained Toyota and Lexus SUVs.
           </p>
           <p className="text-amber-400/70 text-sm italic">
             * Rates are subject to change based on duration and season
           </p>
-        </div>
-
-        {/* Filter */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1.5 bg-amber-500/10 border border-amber-500/20 rounded-full backdrop-blur">
-            {(["all", "sedan", "suv"] as const).map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
-                  filter === f ? "bg-amber-500 text-black" : "text-white/70 hover:text-white"
-                }`}
-              >
-                {f === "all" ? "All Vehicles" : f.charAt(0).toUpperCase() + f.slice(1)}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Vehicle Cards */}
@@ -126,7 +75,7 @@ export default function Fleet() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] to-transparent" />
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-500/90 text-black text-xs font-bold uppercase">
-                  {v.category}
+                  SUV
                 </div>
               </div>
               <div className="p-5">
@@ -143,7 +92,7 @@ export default function Fleet() {
                   ))}
                 </div>
                 <a
-                  href="https://wa.me/2347032225150"
+                  href={`https://wa.me/2347032225150?text=Hello%20Edge%20Car%20Hire%2C%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(v.name)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-black font-semibold hover:shadow-lg hover:shadow-amber-500/40 transition"
@@ -157,13 +106,13 @@ export default function Fleet() {
         </div>
 
         {/* See More Button */}
-        {filtered.length > 4 && !showAll && (
+        {!showAll && (
           <div className="text-center mt-10">
             <button
               onClick={() => setShowAll(true)}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-amber-500/30 text-white font-semibold hover:bg-amber-500 hover:text-black transition"
             >
-              See More Cars
+              See All Vehicles
               <span>→</span>
             </button>
           </div>
